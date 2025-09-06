@@ -1,4 +1,4 @@
-// cice_stringutil.c
+// cice_stringutil.h
 #include <cice_typedecl.h>
 
 VOID 	STRINGUTIL_CopyIntoStringBuffer(CHAR* destination, const CHAR* source)
