@@ -220,3 +220,65 @@ VOID	STRINGUTIL_ToUpperCase(CHAR* buffer, CHAR* target)
 		index++;
 	}
 }
+
+VOID	STRINGUTIL_GetLength(UINT32* result, const CHAR* target)
+{
+	UINT32 index = 0;
+
+	while(target[index] != 0)
+	{
+		index++;
+	}
+
+	*result = index;
+}
+
+VOID	STRINGUTIL_ReplaceFirst(CHAR* buffer, const CHAR* target, const CHAR token, const CHAR replacement)
+{
+	UINT32 index = 0;
+	BOOL replaced = false;
+
+	while(target[index] != 0)
+	{
+		if(!replaced && (target[index] == token))
+		{
+			buffer[index] = replacement;
+			replaced = true;
+		}
+		else
+		{
+			buffer[index] = token[index];
+		}
+	}
+}
+
+VOID	STRINGUTIL_ReplaceAll			(CHAR* buffer, const CHAR* target, const CHAR token, const CHAR replacement)
+{
+	UINT32 index = 0;
+	while(target[index] != 0)
+	{
+		if(target[index] == token)
+		{
+			buffer[index] = replacement;
+		}
+		else
+		{
+			buffer[index] = target[index];
+		}
+	}
+}
+
+VOID	STRINGUTIL_Substring			(CHAR* buffer, const CHAR* target, UINT32 start, const UINT32 end)
+{
+	
+}
+
+VOID	STRINGUTIL_FindFirstCharacter		(UINT32* result, const CHAR* target, const CHAR token);
+
+VOID	STRINGUTIL_FindCharacter		(UINT32* result, const UINT32 start, const CHAR* target, const CHAR token);
+
+VOID	STRINGUTIL_FindFirstWord		(UINT32* result, const CHAR* target, const CHAR* token);
+
+VOID	STRINGUTIL_FindWord			(UINT32* result, const UINT32 start, const CHAR* target, const CHAR* token);
+
+

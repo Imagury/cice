@@ -14,6 +14,7 @@ VOID	STRINGUTIL_StartsWithWord		(BOOL* result, const CHAR* target, const CHAR* t
 VOID	STRINGUTIL_EndsWithWord			(BOOL* result, const CHAR* target, const CHAR* token);
 VOID	STRINGUTIL_ToLowerCase			(CHAR* buffer, const CHAR* target);
 VOID	STRINGUTIL_ToUpperCase			(CHAR* buffer, const CHAR* target);
+
 VOID	STRINGUTIL_GetLength			(UINT32* result, const CHAR* target);
 VOID	STRINGUTIL_ReplaceFirst			(CHAR* buffer, const CHAR* target, const CHAR token);
 VOID	STRINGUTIL_ReplaceAll			(CHAR* buffer, const CHAR* target, const CHAR token);
