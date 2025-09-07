@@ -236,19 +236,25 @@ VOID	STRINGUTIL_GetLength(UINT32* result, const CHAR* target)
 VOID	STRINGUTIL_ReplaceFirst(CHAR* buffer, const CHAR* target, const CHAR token, const CHAR replacement)
 {
 	UINT32 index = 0;
-	BOOL replaced = false;
 
 	while(target[index] != 0)
 	{
-		if(!replaced && (target[index] == token))
+		if(target[index] == token)
 		{
 			buffer[index] = replacement;
-			replaced = true;
+			break;
 		}
 		else
 		{
-			buffer[index] = token[index];
+			buffer[index] = target[index];
 		}
+		index++;
+	}
+
+	while(target[index] != 0)
+	{
+		buffer[index] = target[index];
+		index++;
 	}
 }
 
@@ -270,15 +276,24 @@ VOID	STRINGUTIL_ReplaceAll			(CHAR* buffer, const CHAR* target, const CHAR token
 
 VOID	STRINGUTIL_Substring			(CHAR* buffer, const CHAR* target, UINT32 start, const UINT32 end)
 {
-	
+	UINT32 index = 0;
+	while(start <= end)
+	{
+		buffer[index] = target[start];
+		start++;
+		index++;
+	}
 }
 
-VOID	STRINGUTIL_FindFirstCharacter		(UINT32* result, const CHAR* target, const CHAR token);
+VOID	STRINGUTIL_FindFirstCharacter		(INT32* result, const CHAR* target, const CHAR token)
+{
+	while(target
+}
 
-VOID	STRINGUTIL_FindCharacter		(UINT32* result, const UINT32 start, const CHAR* target, const CHAR token);
+VOID	STRINGUTIL_FindCharacter		(INT32* result, const UINT32 start, const CHAR* target, const CHAR token);
 
-VOID	STRINGUTIL_FindFirstWord		(UINT32* result, const CHAR* target, const CHAR* token);
+VOID	STRINGUTIL_FindFirstWord		(INT32* result, const CHAR* target, const CHAR* token);
 
-VOID	STRINGUTIL_FindWord			(UINT32* result, const UINT32 start, const CHAR* target, const CHAR* token);
+VOID	STRINGUTIL_FindWord			(INT32* result, const UINT32 start, const CHAR* target, const CHAR* token);
 
 
