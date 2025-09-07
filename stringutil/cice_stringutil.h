@@ -16,11 +16,11 @@ VOID	STRINGUTIL_ToLowerCase			(CHAR* buffer, const CHAR* target);
 VOID	STRINGUTIL_ToUpperCase			(CHAR* buffer, const CHAR* target);
 
 VOID	STRINGUTIL_GetLength			(UINT32* result, const CHAR* target);
-VOID	STRINGUTIL_ReplaceFirst			(CHAR* buffer, const CHAR* target, const CHAR token);
-VOID	STRINGUTIL_ReplaceAll			(CHAR* buffer, const CHAR* target, const CHAR token);
-VOID	STRINGUTIL_Substring			(CHAR* buffer, const CHAR* target);
+VOID	STRINGUTIL_ReplaceFirst			(CHAR* buffer, const CHAR* target, const CHAR token, const CHAR replacement);
+VOID	STRINGUTIL_ReplaceAll			(CHAR* buffer, const CHAR* target, const CHAR token, const CHAR replacement);
+VOID	STRINGUTIL_Substring			(CHAR* buffer, const CHAR* target, UINT32 start, const UINT32 end);
 VOID	STRINGUTIL_FindFirstCharacter		(UINT32* result, const CHAR* target, const CHAR token);
-VOID	STRINGUTIL_FindCharacter		(UINT32* result, const UINT32 start, const CHAR* target, const CHAR token);
+VOID	STRINGUTIL_FindCharacter		(UINT32* result, UINT32 start, const CHAR* target, const CHAR token);
 VOID	STRINGUTIL_FindFirstWord		(UINT32* result, const CHAR* target, const CHAR* token);
 VOID	STRINGUTIL_FindWord			(UINT32* result, const UINT32 start, const CHAR* target, const CHAR* token);
 

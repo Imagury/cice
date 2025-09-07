@@ -258,7 +258,7 @@ VOID	STRINGUTIL_ReplaceFirst(CHAR* buffer, const CHAR* target, const CHAR token,
 	}
 }
 
-VOID	STRINGUTIL_ReplaceAll			(CHAR* buffer, const CHAR* target, const CHAR token, const CHAR replacement)
+VOID	STRINGUTIL_ReplaceAll(CHAR* buffer, const CHAR* target, const CHAR token, const CHAR replacement)
 {
 	UINT32 index = 0;
 	while(target[index] != 0)
@@ -274,7 +274,7 @@ VOID	STRINGUTIL_ReplaceAll			(CHAR* buffer, const CHAR* target, const CHAR token
 	}
 }
 
-VOID	STRINGUTIL_Substring			(CHAR* buffer, const CHAR* target, UINT32 start, const UINT32 end)
+VOID	STRINGUTIL_Substring(CHAR* buffer, const CHAR* target, UINT32 start, const UINT32 end)
 {
 	UINT32 index = 0;
 	while(start <= end)
@@ -285,15 +285,82 @@ VOID	STRINGUTIL_Substring			(CHAR* buffer, const CHAR* target, UINT32 start, con
 	}
 }
 
-VOID	STRINGUTIL_FindFirstCharacter		(INT32* result, const CHAR* target, const CHAR token)
+VOID	STRINGUTIL_FindFirstCharacter(INT32* result, const CHAR* target, const CHAR token)
 {
-	while(target
+	UINT32 index = 0;
+
+	while(target[index] != 0)
+	{
+		if(target[index] == token)
+		{
+			*result = index;
+			return;
+		}
+
+		index++;
+	}
+
+	*result = -1;
 }
 
-VOID	STRINGUTIL_FindCharacter		(INT32* result, const UINT32 start, const CHAR* target, const CHAR token);
+VOID	STRINGUTIL_FindCharacter(INT32* result, UINT32 start, const CHAR* target, const CHAR token)
+{	
+	while(target[start] != 0)
+	{
+		if(target[start] == token)
+		{
+			*result = start;
+			return;
+		}
 
-VOID	STRINGUTIL_FindFirstWord		(INT32* result, const CHAR* target, const CHAR* token);
+		start++;
+	}
 
-VOID	STRINGUTIL_FindWord			(INT32* result, const UINT32 start, const CHAR* target, const CHAR* token);
+	*result = -1;
+}
 
+VOID	STRINGUTIL_FindFirstWord(INT32* result, const CHAR* target, const CHAR* token)
+{	
+	UINT32 index = 0, wordIndex = 0;
+	while(target[index] != 0)
+	{
+		if(target[index] == token[wordIndex])
+		{
+			wordIndex++;
+			if(token[wordIndex] == 0)
+			{
+				*result = index - wordIndex + 1;
+				return;
+			}
+		}
+		else
+			wordIndex = 0;
 
+		index++;
+	}
+
+	*result = -1;
+}
+
+VOID	STRINGUTIL_FindWord(INT32* result, UINT32 start, const CHAR* target, const CHAR* token)
+{	
+	UINT32 wordIndex = 0;
+	while(target[start] != 0)
+	{
+		if(target[start] == token[wordIndex])
+		{
+			wordIndex++;
+			if(token[wordIndex] == 0)
+			{
+				*result = start - wordIndex;
+				return;
+			}
+		}
+		else
+			wordIndex = 0;
+
+		start++;
+	}
+
+	*result = -1;
+}
