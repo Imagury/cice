@@ -4,3 +4,4 @@ def:
 	ar rs libcice_stringutil.a cice_stringutil.o
 	rm cice_stringutil.o
 	sudo cp libcice_stringutil.a /usr/local/lib
+	rm libcice_stringutil.a
