@@ -31,12 +31,13 @@ typedef signed long int QWORD;
 typedef unsigned long int UINT64;
 typedef unsigned long int UQWORD;
 
-typedef float FLOAT4;
+typedef float FLOAT32;
 typedef float FLOAT;
 
-typedef double DOUBLE8;
+typedef double DOUBLE64;
+typedef	double DOUBLE;
 
-typedef long double DOUBLE16;
+typedef long double DOUBLE128;
 
 typedef void VOID;
 
