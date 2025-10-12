@@ -100,12 +100,7 @@ VOID	CONVERT_StringToInt64	(INT64* buffer, CHAR* in)
 
 VOID	CONVERT_Int8ToString	(CHAR* buffer, INT8 in)
 {
-	UINT8	digits	= 0;
-
-	if	(buffer	> MAXDIG_BYTE)
-	{
-		digits	= 3;
-	}
+	
 }
 
 VOID	CONVERT_Int16ToString	(CHAR* buffer, INT16 in)

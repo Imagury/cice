@@ -1,0 +1,25 @@
+#!/bin/bash
+
+printf "Making cice-typedecl ...\n"
+cd typedecl
+sudo make
+cd ..
+echo
+
+printf "Making cice-math ...\n"
+cd math
+sudo make
+cd ..
+echo
+
+printf "Making cice-stringutil ...\n"
+cd stringutil
+sudo make
+cd ..
+echo
+
+printf "Making cice-convert ...\n"
+cd convert
+sudo make
+cd ..
+echo
