@@ -352,7 +352,7 @@ VOID	STRINGUTIL_FindWord(INT32* result, UINT32 start, const CHAR* target, const 
 			wordIndex++;
 			if(token[wordIndex] == 0)
 			{
-				*result = start - wordIndex;
+				*result = start - wordIndex + 1;
 				return;
 			}
 		}
